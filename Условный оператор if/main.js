@@ -16,6 +16,8 @@ let officialNameJs = prompt('
 
 
 
+
+
         // Используя конструкцию if..else, напишите код, который получает число через prompt, а затем выводит в alert:
 
         // 1, если значение больше нуля,
@@ -32,6 +34,7 @@ let officialNameJs = prompt('
         } else {
             alert(0);
         }
+
 
 
 
@@ -54,6 +57,9 @@ let officialNameJs = prompt('
 
 
 
+
+
+
         //         Перепишите if..else с использованием нескольких операторов '?'.
 
         // Для читаемости рекомендуется разбить код на несколько строк.
@@ -70,10 +76,33 @@ let officialNameJs = prompt('
         //   message = '';
         // }
 
-
-
         let login = prompt('введите логин');
 
         let message = (login == 'Сотрудник') ? 'Привет' :
             (login == 'Директор') ? 'Здравствуйте' :
             (login == '') ? 'Нет логина' : ''; alert(message);
+
+
+
+
+
+
+        // Если переменная test равна true, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при test, равном true, false
+
+        let test = true;
+        (test == true) ? alert('Верно') : alert('Неверно');
+
+        let test = false;
+        (test == true) ? alert('Верно') : alert('Неверно');
+
+
+
+
+
+        // Если переменная test не равна true, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при test, равном true, false
+
+        let test = false;
+        (test != true) ? alert('Верно') : alert('Неверно');
+
+        let test = true;
+        (test != true) ? alert('Верно') : alert('Неверно');
