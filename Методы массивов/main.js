@@ -37,9 +37,9 @@ function camelize(str) {
   let myArr = [];
 
   arr.forEach((item, index) => {
-    index === 0
-      ? myArr.push(item)
-      : myArr.push(item[0].toUpperCase() + item.slice(1));
+    index === 0 ?
+      myArr.push(item) :
+      myArr.push(item[0].toUpperCase() + item.slice(1));
   });
   return myArr.join("");
 }
@@ -87,8 +87,10 @@ function filterRange(arr, a, b) {
 // alert( arr ); // [3, 1]
 function filterRangeInPlace(arr, a, b) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < a || arr[i] > b) {
-      arr.splice([i], 1);
+    let value = arr[i];
+    if (value < a || value > b) {
+      arr.splice(i, 1);
+      i--;
     }
   }
 }
@@ -159,7 +161,7 @@ function Calculator() {
     "-": (a, b) => a - b
   };
 
-  this.calculate = function(str) {
+  this.calculate = function (str) {
     let culc = str.split(" ");
 
     a = +culc[0];
@@ -173,7 +175,7 @@ function Calculator() {
     return this.method[oper](a, b);
   };
 
-  this.addMethod = function(name, func) {
+  this.addMethod = function (name, func) {
     this.method[name] = func;
   };
 }
@@ -194,18 +196,36 @@ function Calculator() {
 
 // alert( names ); // Вася, Петя, Маша
 
-let vasya = { name: "Вася", age: 25 };
-let petya = { name: "Петя", age: 30 };
-let masha = { name: "Маша", age: 28 };
+let vasya = {
+  name: "Вася",
+  age: 25
+};
+let petya = {
+  name: "Петя",
+  age: 30
+};
+let masha = {
+  name: "Маша",
+  age: 28
+};
 
 let users = [vasya, petya, masha];
 
 let names = users.map(item => item.name);
 
 //  ВАРИАНТ 2
-let vasya = { name: "Вася", age: 25 };
-let petya = { name: "Петя", age: 30 };
-let masha = { name: "Маша", age: 28 };
+let vasya = {
+  name: "Вася",
+  age: 25
+};
+let petya = {
+  name: "Петя",
+  age: 30
+};
+let masha = {
+  name: "Маша",
+  age: 28
+};
 
 let users = [vasya, petya, masha];
 let names = [];
@@ -238,9 +258,21 @@ users.forEach(item => names.push(item.name));
 
 // alert( usersMapped[0].id ) // 1
 // alert( usersMapped[0].fullName ) // Вася Пупкин
-let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
-let petya = { name: "Петя", surname: "Иванов", id: 2 };
-let masha = { name: "Маша", surname: "Петрова", id: 3 };
+let vasya = {
+  name: "Вася",
+  surname: "Пупкин",
+  id: 1
+};
+let petya = {
+  name: "Петя",
+  surname: "Иванов",
+  id: 2
+};
+let masha = {
+  name: "Маша",
+  surname: "Петрова",
+  id: 3
+};
 
 let users = [vasya, petya, masha];
 
