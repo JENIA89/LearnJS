@@ -6,7 +6,7 @@
 function changeStr(str) {
   let myStr = str.toLowerCase().split("");
 
-  myStr.forEach(function(item, index) {
+  myStr.forEach(function (item, index) {
     if (
       item == "a" ||
       item == "e" ||
@@ -116,7 +116,7 @@ minMaxArray = arr => {
     .sort((a, b) => a - b)
     .find(
       (item, index, array) =>
-        results.push(arr[0]) && results.push(arr[arr.length - 1])
+      results.push(arr[0]) && results.push(arr[arr.length - 1])
     );
 
   return results;
@@ -162,7 +162,7 @@ function schangtStr(str) {
     .split(" ")
     .map(
       item =>
-        item[0].toUpperCase() + item.toLowerCase().substring(1, item.length)
+      item[0].toUpperCase() + item.toLowerCase().substring(1, item.length)
     )
     .join(" ");
 
@@ -182,3 +182,14 @@ findNextSquare = sq => {
 
   return num % 1 ? -1 : (num + 1) ** 2;
 };
+
+// Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters,
+
+// each taken only once - coming from s1 or s2.
+// a = "xyaabbbccccdefww"
+// b = "xxxxyyyyabklmopq"
+// longest(a, b) -> "abcdefklmopqwxy"
+function longest(s1, s2) {
+  let arr = Array.from(new Set(s1 + s2));
+  return arr.sort().join('');
+}
