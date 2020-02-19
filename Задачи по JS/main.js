@@ -6,7 +6,7 @@
 function changeStr(str) {
   let myStr = str.toLowerCase().split("");
 
-  myStr.forEach(function (item, index) {
+  myStr.forEach(function(item, index) {
     if (
       item == "a" ||
       item == "e" ||
@@ -116,7 +116,7 @@ minMaxArray = arr => {
     .sort((a, b) => a - b)
     .find(
       (item, index, array) =>
-      results.push(arr[0]) && results.push(arr[arr.length - 1])
+        results.push(arr[0]) && results.push(arr[arr.length - 1])
     );
 
   return results;
@@ -162,7 +162,7 @@ function schangtStr(str) {
     .split(" ")
     .map(
       item =>
-      item[0].toUpperCase() + item.toLowerCase().substring(1, item.length)
+        item[0].toUpperCase() + item.toLowerCase().substring(1, item.length)
     )
     .join(" ");
 
@@ -191,5 +191,106 @@ findNextSquare = sq => {
 // longest(a, b) -> "abcdefklmopqwxy"
 function longest(s1, s2) {
   let arr = Array.from(new Set(s1 + s2));
-  return arr.sort().join('');
+  return arr.sort().join("");
 }
+
+// An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+
+// isIsogram("Dermatoglyphics") == true
+// isIsogram("aba") == false
+// isIsogram("moOse") == false // -- ignore letter case
+function isIsogram(str) {
+  return str.length == new Set(str.toLowerCase()).size;
+}
+
+// Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+
+// For example:
+
+//  persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4
+//                        // and 4 has only one digit
+
+//  persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
+//                         // 1*2*6 = 12, and finally 1*2 = 2
+
+//  persistence(4) === 0 // because 4 is already a one-digit number
+function persistence(num) {
+  let times = 0;
+
+  num = num.toString();
+
+  while (num.length > 1) {
+    times++;
+    num = num
+      .split("")
+      .reduce((a, b) => a * b)
+      .toString();
+  }
+
+  return times;
+}
+
+// There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+// findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+// findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+function findUniq(arr) {
+  arr.sort();
+  if (arr[0] == arr[1]) {
+    return arr[arr.length - 1];
+  }
+
+  return arr[0];
+}
+
+// Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+
+// Example:
+// createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
+// The returned format must be correct in order to complete this challenge.
+// Don't forget the space after the closing parentheses!
+function createPhoneNumber(numbers) {
+  let result = numbers.concat();
+  result.splice(0, 0, "(");
+  result.splice(4, 0, ")");
+  result.splice(5, 0, " ");
+  result.splice(9, 0, "-");
+
+  return result.join("");
+}
+
+
+// The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+// Examples
+// "din"      =>  "((("
+// "recede"   =>  "()()()"
+// "Success"  =>  ")())())"
+// "(( @"     =>  "))((" 
+function duplicateEncode(word){
+  let result = '';
+   
+  let myWord = word.toLowerCase();
+   
+   for (var i = 0; i < myWord.length; i++) {
+     
+     if (myWord.indexOf(myWord[i]) === myWord.lastIndexOf(myWord[i])) {
+       
+       result += "("; 
+       
+     } else {     
+       
+       result += ")";   
+     }
+   }
+
+  //  ВАРИАНТ 2
+  function duplicateEncode(word){
+    let result = '';
+     
+    let myWord = word.toLowerCase();
+     
+    myWord.split('').map((item,i) => (myWord.indexOf(item) ==  myWord.lastIndexOf(item)) ? result += '(' : result += ')').join('')
+    
+      return result;
+     }
