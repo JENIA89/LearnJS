@@ -294,3 +294,28 @@ function duplicateEncode(word){
     
       return result;
      }
+
+
+//      A digital root is the recursive sum of all the digits in a number. Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. This is only applicable to the natural numbers.
+
+// Here's how it works:
+
+// digital_root(16)
+// => 1 + 6
+// => 7
+function digital_root(n) {
+  return (n.toString().length == 1) ? n : 
+  digital_root(Number(n).toString().split('').reduce((current, i)=> Number(current) + Number(i),0 ))
+    
+    
+  }
+
+
+//   Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+
+// Examples
+// pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+function pigIt(str){
+
+  return str.split(' ').map(word => word.substr(1) + word[0] + 'ay').join(' ');
+}
