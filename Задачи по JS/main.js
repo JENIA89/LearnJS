@@ -339,7 +339,7 @@ function printer_error(str){
    str.split('')
    .map((item, i)=> (item == 'n' || item == 'o' || item == 'p' ||item == 'q' || item == 'r' || item == 's' || item == 't' || item == 'u' || item == 'v' || item == 'w' || item == 'x' || item == 'z') ? mistakeLetters.push(item) : undefined) 
   
-  let result = mistakeLetters.length + '/' + str.split('').length;
+  let result = mistakeLetters.length + '/' + str.length;
   
   
   return result;
@@ -352,7 +352,7 @@ function printer_error(str){
 
     let mistakeLetters = str.match(/n|o|p|q|r|s|t|u|v|w|x|z/g);
     
-    let result = mistakeLetters.length +'/' + str.split('').length;
+    let result = mistakeLetters.length +'/' + str.length;
     
     return result;
    }
