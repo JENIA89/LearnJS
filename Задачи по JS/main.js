@@ -319,3 +319,40 @@ function pigIt(str){
 
   return str.split(' ').map(word => word.substr(1) + word[0] + 'ay').join(' ');
 }
+
+
+// На фабрике принтер печатает этикетки для коробок. Для одного вида коробок принтер должен использовать цвета, которые для простоты названы буквами от a до m.
+
+// Цвета, используемые принтером, записываются в управляющую строку. Например, «хорошая» управляющая строка будет aaabbbbhaijjjm, что означает, что принтер использовал три раза цвет a, четыре раза цвет b, один раз цвет h, а затем один раз цвет a ...
+
+// Иногда возникают проблемы: возникает недостаток цветов, техническая неисправность и «плохая» контрольная строка, например aaaxbbbbyyhwawiwjjjwwm с письмами не от а до м.
+
+// Вы должны написать функцию printer_error, которая для данной строки будет выводить коэффициент ошибок принтера в виде строки, представляющей рациональное число, числитель которого равен числу ошибок, а знаменатель - длине управляющей строки. Не уменьшайте эту дробь до более простого выражения.
+
+// Строка имеет длину, большую или равную единице, и содержит только буквы от a до z.
+let str = 'aaaxbbbbyyhwawiwjjjwwm';
+
+function printer_error(str){
+
+  let mistakeLetters = []
+      
+   str.split('')
+   .map((item, i)=> (item == 'n' || item == 'o' || item == 'p' ||item == 'q' || item == 'r' || item == 's' || item == 't' || item == 'u' || item == 'v' || item == 'w' || item == 'x' || item == 'z') ? mistakeLetters.push(item) : undefined) 
+  
+  let result = mistakeLetters.length + '/' + str.split('').length;
+  
+  
+  return result;
+  
+  }
+
+  // ВАРИАНТ 2
+
+  function printer_error(str){
+
+    let mistakeLetters = str.match(/n|o|p|q|r|s|t|u|v|w|x|z/g);
+    
+    let result = mistakeLetters.length +'/' + str.split('').length;
+    
+    return result;
+   }
