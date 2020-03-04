@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+
+}
+
+.App-logo {
+  height: 10vmin;
+  pointer-events: none;
+  margin-top: 50px;
+}
+
+
+
+
+.App {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.header p {
+  font-size: 45px;
+  text-shadow: 1px 1px white,
+    2px 2px #777;
+  color: #333;
+  transition: all 1s;
+}
+
+
+
+
+.header p:hover {
+  text-shadow: 2px 2px white,
+    2px 2px tomato;
+
+}
+
+.main-menu ul {
+  list-style-type: none;
+}
+
+.footer {
+  padding-top: 120px;
+
+}
